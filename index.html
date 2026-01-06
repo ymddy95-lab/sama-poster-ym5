@@ -1,0 +1,1649 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>فروشگاه تابلو و پوستر | قالب حرفه‌ای</title>
+  <meta name="description" content="فروشگاه تابلو و پوستر با سبد خرید، روش ارسال پست/تیپاکس، پرداخت آنلاین یا پرداخت در محل، و پنل مدیریت شخصی." />
+  <style>
+    :root{
+      --bg:#0b1220; --bg2:#0f1a33; --card:#101a35;
+      --text:#e9eefc; --muted:#b7c4ff; --line: rgba(255,255,255,.12);
+      --shadow: 0 18px 55px rgba(0,0,0,.35); --radius: 18px;
+      --brand:#ffb703; --brand2:#fb8500; --accent:#6ea8fe;
+      --ok:#2ee59d; --danger:#ff5a5f;
+      --font: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial, "Noto Sans Arabic", "Noto Naskh Arabic", "Tahoma";
+    }
+    [data-theme="light"]{
+      --bg:#f6f7fb; --bg2:#ffffff; --card:#ffffff;
+      --text:#0b1220; --muted:#3b4a6b; --line: rgba(10,15,25,.12);
+      --shadow: 0 18px 45px rgba(15,25,45,.12);
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{margin:0;font-family:var(--font);color:var(--text);background:linear-gradient(180deg,var(--bg),var(--bg2));line-height:1.75;overflow-x:hidden}
+    a{color:inherit;text-decoration:none}
+    button,input,select,textarea{font-family:var(--font)}
+    .container{width:min(1220px,92%);margin:0 auto}
+    .muted{color:var(--muted)} .small{font-size:12px} .mono{font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace}
+    .chip{display:inline-flex;align-items:center;gap:8px;padding:6px 10px;border-radius:999px;border:1px solid var(--line);background:rgba(255,255,255,.05);font-size:12px}
+    .chip b{font-weight:900}
+    .bgfx{position:fixed;inset:0;z-index:-1;background:
+      radial-gradient(1100px 600px at 20% 0%, rgba(255,183,3,.18), transparent 60%),
+      radial-gradient(900px 500px at 90% 18%, rgba(110,168,254,.18), transparent 55%),
+      radial-gradient(800px 500px at 65% 85%, rgba(46,229,157,.10), transparent 55%),
+      linear-gradient(180deg,var(--bg),var(--bg2));filter:saturate(1.05)}
+    .topbar{position:sticky;top:0;z-index:40;backdrop-filter:blur(12px);background:rgba(10,15,25,.55);border-bottom:1px solid var(--line)}
+    [data-theme="light"] .topbar{background:rgba(255,255,255,.80)}
+    .topbar__row{display:flex;align-items:center;justify-content:space-between;padding:12px 0;gap:12px;flex-wrap:wrap}
+    .brand{display:flex;align-items:center;gap:10px;min-width:220px}
+    .logo{width:44px;height:44px;border-radius:14px;display:grid;place-items:center;background:linear-gradient(135deg,var(--brand),var(--brand2));color:#2a1b00;box-shadow:var(--shadow);font-weight:1000;user-select:none}
+    .brand__name{font-weight:1000;letter-spacing:-.4px}
+    .brand__tag{font-size:12px;color:var(--muted)}
+    .actions{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+    .btn{border:1px solid transparent;background:linear-gradient(135deg,var(--brand),var(--brand2));color:#2a1b00;padding:10px 12px;border-radius:14px;font-weight:900;cursor:pointer;box-shadow:var(--shadow);display:inline-flex;align-items:center;justify-content:center;gap:8px;user-select:none;white-space:nowrap}
+    .btn:hover{transform:translateY(-1px)}
+    .btn--ghost{background:transparent;border-color:var(--line);color:var(--text);box-shadow:none}
+    .btn--soft{background:rgba(255,255,255,.06);border-color:var(--line);color:var(--text);box-shadow:none}
+    .btn--full{width:100%}
+    .badge{display:inline-grid;place-items:center;min-width:22px;height:22px;padding:0 6px;border-radius:999px;border:1px solid var(--line);background:rgba(255,255,255,.10);color:var(--text);font-weight:1000;font-size:12px}
+    .searchbar{display:flex;align-items:center;gap:10px;flex:1 1 420px;min-width:min(520px,100%)}
+    .input,select,textarea{width:100%;padding:10px 12px;border-radius:14px;border:1px solid var(--line);background:rgba(0,0,0,.12);color:var(--text);outline:none}
+    [data-theme="light"] .input,[data-theme="light"] select,[data-theme="light"] textarea{background:rgba(10,15,25,.03)}
+    .nav{display:flex;gap:10px;flex-wrap:wrap;padding:0 0 12px;align-items:center}
+    .nav a{padding:8px 10px;border-radius:12px;border:1px solid transparent;color:var(--muted)}
+    .nav a:hover{border-color:var(--line);color:var(--text);background:rgba(255,255,255,.04)}
+    .hero{border-radius:var(--radius);border:1px solid var(--line);background:
+      radial-gradient(1000px 520px at 10% 20%, rgba(255,183,3,.16), transparent 65%),
+      radial-gradient(800px 460px at 95% 25%, rgba(110,168,254,.18), transparent 60%),
+      rgba(255,255,255,.03);box-shadow:var(--shadow);overflow:hidden}
+    .hero__wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:12px;padding:18px;align-items:stretch}
+    .hero h1{margin:0 0 8px;font-size:34px;line-height:1.25;letter-spacing:-.6px}
+    .hero p{margin:0 0 12px;color:var(--muted)}
+    .hero__cta{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
+    .kpis{display:grid;gap:10px}
+    .kpi{padding:12px;border-radius:16px;border:1px solid var(--line);background:rgba(255,255,255,.04)}
+    .kpi b{font-size:16px} .kpi .muted{font-size:12px}
+    .sectionHead{display:flex;align-items:end;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-top:14px}
+    .sectionHead h2{margin:0;font-size:20px}
+    .tools{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+    .products{margin-top:10px;display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+    .p{border:1px solid var(--line);border-radius:var(--radius);background:rgba(255,255,255,.05);overflow:hidden;display:flex;flex-direction:column;min-height:320px}
+    .p__img{width:100%;height:170px;object-fit:cover;background:rgba(255,255,255,.06)}
+    .p__b{padding:12px;display:grid;gap:8px}
+    .p__name{font-weight:1000;letter-spacing:-.2px}
+    .p__meta{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
+    .price{font-weight:1000}
+    .pill{font-size:12px;color:var(--muted);border:1px solid var(--line);padding:4px 8px;border-radius:999px;background:rgba(255,255,255,.05);max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+    .p__foot{padding:12px;display:flex;gap:10px;margin-top:auto}
+    .mini{border:1px solid var(--line);background:rgba(255,255,255,.05);color:var(--text);padding:10px 12px;border-radius:14px;cursor:pointer;width:46px;user-select:none}
+    .mini:hover{transform:translateY(-1px)}
+    .p__hint{color:var(--muted);font-size:12px}
+    .card{border:1px solid var(--line);border-radius:var(--radius);background:rgba(255,255,255,.05);box-shadow:var(--shadow)}
+    [data-theme="light"] .card{background:rgba(10,15,25,.03)}
+    .card__p{padding:14px}
+    .card__h{padding:14px;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;gap:10px}
+    .card__h h3{margin:0;font-size:15px}
+    .hr{height:1px;background:var(--line)}
+    .trustGrid{display:grid;grid-template-columns:1.2fr .8fr;gap:12px;margin-top:12px}
+    .logos{display:flex;gap:10px;flex-wrap:wrap}
+    .logoBox{width:110px;height:72px;border-radius:16px;border:1px dashed var(--line);background:rgba(255,255,255,.04);display:grid;place-items:center;overflow:hidden;position:relative}
+    .logoBox img{width:100%;height:100%;object-fit:contain;padding:10px}
+    .stars{display:flex;gap:6px;align-items:center;flex-wrap:wrap}
+    .quote{padding:12px;border-radius:16px;border:1px solid var(--line);background:rgba(255,255,255,.04);margin-top:10px}
+    footer{margin-top:16px;border-top:1px solid var(--line);padding:16px 0 26px;background:rgba(255,255,255,.03)}
+    .foot{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;align-items:center}
+    .overlay{position:fixed;inset:0;display:none;z-index:60}
+    .overlay.is-open{display:block}
+    .panel{position:absolute;top:0;bottom:0;width:min(460px,92vw);background:rgba(15,25,45,.94);backdrop-filter:blur(14px);border-right:1px solid var(--line);display:flex;flex-direction:column}
+    [data-theme="light"] .panel{background:rgba(255,255,255,.95)}
+    .panel--right{right:0;left:auto;border-right:none;border-left:1px solid var(--line)}
+    .panel__h{padding:14px;display:flex;justify-content:space-between;align-items:center;gap:10px;border-bottom:1px solid var(--line)}
+    .panel__t{font-weight:1000}
+    .panel__b{padding:12px 14px;overflow:auto;display:grid;gap:10px}
+    .panel__f{padding:14px;border-top:1px solid var(--line);display:grid;gap:10px}
+    .backdrop{position:absolute;inset:0;background:rgba(0,0,0,.35)}
+    .iconBtn{border:1px solid var(--line);background:rgba(255,255,255,.06);color:var(--text);width:40px;height:40px;border-radius:12px;cursor:pointer}
+    .row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+    .row3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px}
+    .field{display:grid;gap:6px}
+    .label{font-weight:900;font-size:12px;color:var(--muted)}
+    .ci{border:1px solid var(--line);border-radius:16px;background:rgba(255,255,255,.05);padding:10px;display:grid;gap:8px}
+    .ci__top{display:flex;justify-content:space-between;gap:10px;align-items:center}
+    .ci__name{font-weight:1000}
+    .ci__ctrl{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+    .totalLine{display:flex;justify-content:space-between;align-items:center}
+    .totalBig{font-weight:1000;font-size:18px}
+    .steps{display:flex;gap:8px;flex-wrap:wrap}
+    .step{padding:8px 10px;border-radius:999px;border:1px solid var(--line);background:rgba(255,255,255,.04);font-size:12px;color:var(--muted);display:flex;align-items:center;gap:8px}
+    .step.is-on{color:var(--text);border-color:rgba(255,183,3,.35);background:rgba(255,183,3,.10)}
+    .warn{border:1px solid rgba(255,90,95,.45);background:rgba(255,90,95,.10);border-radius:16px;padding:10px;color:var(--text)}
+
+    /* BANNERS */
+    .banners{margin-top:14px;display:grid;gap:12px}
+    .bannerRail{position:relative}
+    .bannerTrack{display:grid;grid-auto-flow:column;grid-auto-columns:100%;gap:12px;overflow:auto;scroll-snap-type:x mandatory;padding-bottom:6px}
+    .bannerTrack::-webkit-scrollbar{height:10px}
+    .bannerTrack::-webkit-scrollbar-thumb{background:rgba(255,255,255,.12);border-radius:999px}
+    [data-theme="light"] .bannerTrack::-webkit-scrollbar-thumb{background:rgba(10,15,25,.18)}
+    .banner{scroll-snap-align:start;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;background:rgba(255,255,255,.04);box-shadow:var(--shadow);position:relative;min-height:190px}
+    .banner img{width:100%;height:240px;object-fit:cover;display:block;filter:saturate(1.05)}
+    @media (max-width:560px){ .banner img{height:210px} }
+    .bannerShade{position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,0,0,.62),rgba(0,0,0,.15),rgba(0,0,0,0));}
+    [data-theme="light"] .bannerShade{background:linear-gradient(90deg,rgba(255,255,255,.85),rgba(255,255,255,.25),rgba(255,255,255,0));}
+    .bannerText{position:absolute;right:14px;top:14px;max-width:min(520px,80%);display:grid;gap:8px}
+    .bannerText b{font-size:20px;letter-spacing:-.3px}
+    .bannerText .muted{color:rgba(255,255,255,.88)}
+    [data-theme="light"] .bannerText .muted{color:#33425f}
+    .bannerCtrl{position:absolute;left:12px;bottom:12px;display:flex;gap:8px}
+    .dotRow{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-top:6px}
+    .dot{width:10px;height:10px;border-radius:999px;border:1px solid var(--line);background:rgba(255,255,255,.10);cursor:pointer}
+    .dot.is-on{background:rgba(255,183,3,.55);border-color:rgba(255,183,3,.55)}
+    .catChips{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+    .catChip{padding:7px 10px;border-radius:999px;border:1px solid var(--line);background:rgba(255,255,255,.04);color:var(--muted);font-size:12px;cursor:pointer;user-select:none}
+    .catChip.is-on{color:var(--text);border-color:rgba(255,183,3,.35);background:rgba(255,183,3,.10)}
+
+    @media (max-width:1020px){
+      .products{grid-template-columns:repeat(2,1fr)}
+      .hero__wrap{grid-template-columns:1fr}
+      .trustGrid{grid-template-columns:1fr}
+      .searchbar{min-width:100%}
+    }
+    @media (max-width:560px){
+      .products{grid-template-columns:1fr}
+      .panel{width:min(520px,96vw)}
+    }
+  </style>
+</head>
+<body>
+  <div class="bgfx" aria-hidden="true"></div>
+
+  <header class="topbar">
+    <div class="container">
+      <div class="topbar__row">
+        <div class="brand">
+          <div class="logo" id="logoMark">P</div>
+          <div>
+            <div class="brand__name" id="storeName">فروشگاه پوستر</div>
+            <div class="brand__tag" id="storeTag">تابلو و پوسترهای خاص برای خانه و محل کار</div>
+          </div>
+        </div>
+
+        <div class="searchbar">
+          <input id="q" class="input" type="search" placeholder="جستجو: پوستر مینیمال، تابلو طبیعت..." />
+          <select id="cat" class="input"><option value="all">همه</option></select>
+          <select id="sort" class="input">
+            <option value="popular">پیشنهادی</option>
+            <option value="priceAsc">ارزان‌تر</option>
+            <option value="priceDesc">گران‌تر</option>
+            <option value="nameAsc">نام: الف → ی</option>
+          </select>
+        </div>
+
+        <div class="actions">
+          <button class="btn btn--ghost" id="themeBtn" type="button">تم روشن</button>
+          <button class="btn btn--ghost" id="helpBtn" type="button">راهنما</button>
+          <a class="btn btn--ghost" id="waBtn" href="#" target="_blank" rel="noopener">واتساپ پشتیبانی</a>
+          <button class="btn btn--ghost" id="adminBtn" type="button">مدیریت</button>
+          <button class="btn" id="cartBtn" type="button">سبد خرید <span class="badge" id="cartCount">0</span></button>
+        </div>
+      </div>
+
+      <nav class="nav">
+        <a href="#products">محصولات</a>
+        <a href="#trust">اعتماد مشتریان</a>
+        <a href="#shipping">ارسال و پرداخت</a>
+        <a href="#faq">سوالات متداول</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div class="hero__wrap">
+        <div>
+          <h1 id="heroTitle">تابلو و پوسترهای خاص، آماده ارسال</h1>
+          <p id="heroDesc">انتخاب آسان، سبد خرید، پرداخت آنلاین یا پرداخت در محل. همه چیز از پنل مدیریت فقط برای خودت قابل ویرایش است.</p>
+          <div class="hero__cta">
+            <a class="btn" href="#products">دیدن محصولات</a>
+            <button class="btn btn--soft" id="openCheckout" type="button">ثبت سفارش سریع</button>
+            <a class="btn btn--ghost" id="customOrderBtn" href="#" target="_blank" rel="noopener">سفارش سفارشی در واتساپ</a>
+          </div>
+          <div style="margin-top:12px; display:flex; gap:10px; flex-wrap:wrap;">
+            <span class="chip">🎁 <b id="kpi1">بسته‌بندی مطمئن</b></span>
+            <span class="chip">⚡ <b id="kpi2">ارسال سریع</b></span>
+            <span class="chip">✅ <b id="kpi3">ضمانت سلامت</b></span>
+          </div>
+        </div>
+
+        <div class="kpis">
+          <div class="kpi">
+            <b id="kpiRight1">چاپ باکیفیت</b>
+            <div class="muted">کاغذ/کنواس درجه ۱ + رنگ‌های ماندگار</div>
+          </div>
+          <div class="kpi">
+            <b id="kpiRight2">سفارش اختصاصی</b>
+            <div class="muted">امکان چاپ سایزهای مختلف و شخصی‌سازی</div>
+          </div>
+          <div class="kpi">
+            <b id="kpiRight3">پشتیبانی</b>
+            <div class="muted" id="supportText">واتساپ / تلگرام / تماس</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <section id="banners" class="banners" aria-label="بنرها">
+      <div class="sectionHead">
+        <h2>پیشنهادهای ویژه</h2>
+        <div class="tools">
+          <div class="dotRow" id="bannerDots"></div>
+          <button class="btn btn--ghost" id="bannerPrev" type="button">قبلی</button>
+          <button class="btn btn--ghost" id="bannerNext" type="button">بعدی</button>
+        </div>
+      </div>
+      <div class="bannerRail">
+        <div class="bannerTrack" id="bannerTrack"></div>
+      </div>
+    </section>
+
+    <section id="products">
+      <div class="sectionHead">
+        <h2>محصولات</h2>
+        <div class="tools">
+          <div class="catChips" id="catChips"></div>
+          <span class="muted small" id="results">—</span>
+          <button class="btn btn--ghost" id="showAllBtn" type="button">نمایش همه محصولات</button>
+          <button class="btn btn--ghost" id="clearFilters" type="button">پاک کردن فیلترها</button>
+        </div>
+      </div>
+      <div id="grid" class="products"></div>
+    </section>
+
+    <section id="trust" style="margin-top:16px;">
+      <div class="sectionHead">
+        <h2>اعتماد مشتریان و نمادها</h2>
+        <div class="muted small">این بخش از پنل مدیریت قابل تغییر است</div>
+      </div>
+
+      <div class="trustGrid">
+        <div class="card">
+          <div class="card__h">
+            <h3>نظرات مشتریان</h3>
+            <div class="stars">
+              <span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span>
+              <span class="muted small" id="ratingText">۴٫۹ از ۵ (۲۴۲ نظر)</span>
+            </div>
+          </div>
+          <div class="card__p" id="testimonials"></div>
+        </div>
+
+        <div class="card">
+          <div class="card__h">
+            <h3>نمادها</h3>
+            <div class="muted small">eNamad / ساماندهی / …</div>
+          </div>
+          <div class="card__p">
+            <div class="logos" id="trustLogos"></div>
+            <div class="quote">
+              <b id="trustTitle">خرید مطمئن</b>
+              <div class="muted" id="trustDesc">امکان پرداخت آنلاین یا پرداخت در محل + پیگیری سفارش</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="shipping" style="margin-top:16px;">
+      <div class="sectionHead">
+        <h2>ارسال و پرداخت</h2>
+        <div class="muted small">پست / تیپاکس + پرداخت آنلاین / در محل</div>
+      </div>
+      <div class="card">
+        <div class="card__p">
+          <div class="row">
+            <div class="field">
+              <div class="label">روش‌های ارسال</div>
+              <div class="muted" id="shippingSummary">پست پیشتاز، تیپاکس</div>
+            </div>
+            <div class="field">
+              <div class="label">روش‌های پرداخت</div>
+              <div class="muted" id="paymentSummary">آنلاین، پرداخت در محل</div>
+            </div>
+          </div>
+          <div style="margin-top:10px;" class="muted small" id="shippingNote"></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="faq" style="margin-top:16px;">
+      <div class="sectionHead"><h2>سوالات متداول</h2></div>
+      <div class="card"><div class="card__p" id="faqBox"></div></div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container foot">
+      <div>
+        <b id="footerName">فروشگاه پوستر</b>
+        <div class="muted small" id="footerNote">© <span id="year"></span> همه حقوق محفوظ است</div>
+      </div>
+      <div class="muted small">نسخه تک‌فایلی HTML (مناسب موبایل و کامپیوتر)</div>
+    </div>
+  </footer>
+
+  <!-- CART -->
+  <section class="overlay" id="cartOverlay" aria-hidden="true">
+    <div class="panel">
+      <div class="panel__h"><div class="panel__t">سبد خرید</div><button class="iconBtn" id="cartClose">✕</button></div>
+      <div class="panel__b" id="cartItems"></div>
+      <div class="panel__f">
+        <div class="totalLine"><div class="muted">جمع کل</div><div class="totalBig" id="cartTotal">0</div></div>
+        <button class="btn btn--full" id="goCheckout" type="button">ادامه و ثبت سفارش</button>
+        <div class="muted small" id="cartMsg"></div>
+      </div>
+    </div>
+    <div class="backdrop" id="cartBackdrop"></div>
+  </section>
+
+  <!-- CHECKOUT -->
+  <section class="overlay" id="checkoutOverlay" aria-hidden="true">
+    <div class="panel panel--right">
+      <div class="panel__h"><div class="panel__t">تکمیل سفارش</div><button class="iconBtn" id="checkoutClose">✕</button></div>
+      <div class="panel__b">
+        <div class="steps">
+          <span class="step is-on"><b>۱</b> اطلاعات</span>
+          <span class="step"><b>۲</b> ارسال</span>
+          <span class="step"><b>۳</b> پرداخت</span>
+          <span class="step"><b>۴</b> تایید</span>
+        </div>
+
+        <div class="card" style="margin-top:10px;">
+          <div class="card__p">
+            <div class="row">
+              <div class="field"><div class="label">نام و نام خانوادگی</div><input class="input" id="cName" placeholder="مثلاً علی رضایی"></div>
+              <div class="field"><div class="label">موبایل</div><input class="input" id="cPhone" placeholder="09..." inputmode="tel"></div>
+            </div>
+            <div class="field" style="margin-top:10px;"><div class="label">آدرس کامل</div><textarea class="input" id="cAddr" rows="3" placeholder="شهر، خیابان، پلاک، واحد..."></textarea></div>
+            <div class="row" style="margin-top:10px;">
+              <div class="field"><div class="label">کد پستی (اختیاری)</div><input class="input" id="cPost" placeholder="۱۰ رقمی" inputmode="numeric"></div>
+              <div class="field"><div class="label">یادداشت سفارش (اختیاری)</div><input class="input" id="cNote" placeholder="مثلاً تحویل عصر"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card"><div class="card__h"><h3>روش ارسال</h3><span class="muted small">قابل تنظیم از مدیریت</span></div><div class="card__p" id="shipOptions"></div></div>
+        <div class="card"><div class="card__h"><h3>روش پرداخت</h3><span class="muted small">آنلاین / در محل</span></div><div class="card__p" id="payOptions"></div></div>
+
+        <div class="card">
+          <div class="card__h"><h3>خلاصه سفارش</h3><span class="muted small">محاسبه خودکار</span></div>
+          <div class="card__p">
+            <div class="totalLine"><span class="muted">جمع کالاها</span><b id="sumItems">0</b></div>
+            <div class="totalLine"><span class="muted">هزینه ارسال</span><b id="sumShip">0</b></div>
+            <div class="hr" style="margin:10px 0;"></div>
+            <div class="totalLine"><span class="muted">مبلغ قابل پرداخت</span><span class="totalBig" id="sumTotal">0</span></div>
+            <div class="muted small" id="payHint" style="margin-top:8px;"></div>
+          </div>
+        </div>
+
+        <button class="btn btn--full" id="placeOrder" type="button">ثبت سفارش</button>
+        <div class="muted small" id="orderMsg"></div>
+      </div>
+    </div>
+    <div class="backdrop" id="checkoutBackdrop"></div>
+  </section>
+
+  <!-- HELP -->
+  <section class="overlay" id="helpOverlay" aria-hidden="true">
+    <div class="panel panel--right" style="width:min(680px,96vw);">
+      <div class="panel__h"><div class="panel__t">راهنمای باز کردن و ویرایش</div><button class="iconBtn" id="helpClose">✕</button></div>
+      <div class="panel__b" id="helpContent"></div>
+    </div>
+    <div class="backdrop" id="helpBackdrop"></div>
+  </section>
+
+  <!-- ADMIN -->
+  <section class="overlay" id="adminOverlay" aria-hidden="true">
+    <div class="panel panel--right" style="width:min(760px,96vw);">
+      <div class="panel__h"><div class="panel__t">پنل مدیریت (فقط برای خودت)</div><button class="iconBtn" id="adminClose">✕</button></div>
+      <div class="panel__b" id="adminBody"></div>
+      <div class="panel__f">
+        <div class="row">
+          <button class="btn btn--ghost" id="adminCancel" type="button">انصراف</button>
+          <button class="btn" id="adminSave" type="button">ذخیره و اعمال</button>
+        </div>
+        <div class="muted small" id="adminMsg"></div>
+      </div>
+    </div>
+    <div class="backdrop" id="adminBackdrop"></div>
+  </section>
+
+  <script>
+    const STORE_KEY="poster_shop_state_v2";
+    const CART_KEY="poster_shop_cart_v2";
+    const OWNER_KEY="poster_shop_owner_v2";
+
+    const DEFAULT={
+      admin:{password:"1234"},
+      config:{
+        theme:"dark",
+        storeName:"فروشگاه پوستر",
+        storeTag:"تابلو و پوسترهای خاص برای خانه و محل کار",
+        logoMark:"P",
+        heroTitle:"تابلو و پوسترهای خاص، آماده ارسال",
+        heroDesc:"انتخاب آسان، سبد خرید، پرداخت آنلاین یا پرداخت در محل. همه چیز از پنل مدیریت فقط برای خودت قابل ویرایش است.",
+        supportText:"واتساپ / تلگرام / تماس",
+        currency:"تومان",
+        kpis:["بسته‌بندی مطمئن","ارسال سریع","ضمانت سلامت"],
+        kpisRight:["چاپ باکیفیت","سفارش اختصاصی","پشتیبانی"],
+        colors:{brand:"#ffb703",brand2:"#fb8500",accent:"#6ea8fe"},
+        banners:[
+          {title:"بنر ۱: تخفیف افتتاحیه",subtitle:"تا ۳۰٪ تخفیف روی پوسترهای مینیمال",image:"https://images.unsplash.com/photo-1523726491678-bf852e717f6a?auto=format&fit=crop&w=1400&q=60",linkText:"مشاهده محصولات مینیمال",linkUrl:"#products"},
+          {title:"بنر ۲: طبیعت آرامش‌بخش",subtitle:"تابلوهای طبیعت مناسب اتاق نشیمن",image:"https://images.unsplash.com/photo-1482192505345-5655af888cc4?auto=format&fit=crop&w=1400&q=60",linkText:"دیدن دسته طبیعت",linkUrl:"#products"},
+          {title:"بنر ۳: چاپ لوکس",subtitle:"کنواس درجه ۱ + رنگ‌های ماندگار",image:"https://images.unsplash.com/photo-1541961017774-22349e4a1262?auto=format&fit=crop&w=1400&q=60",linkText:"سفارش لوکس",linkUrl:"#shipping"}
+        ],
+        trust:{
+          ratingText:"۴٫۹ از ۵ (۲۴۲ نظر)",
+          trustTitle:"خرید مطمئن",
+          trustDesc:"امکان پرداخت آنلاین یا پرداخت در محل + پیگیری سفارش",
+          logos:[
+            {title:"نماد اعتماد",img:"",link:""},
+            {title:"مجوز",img:"",link:""},
+            {title:"پرداخت امن",img:"",link:""}
+          ],
+          testimonials:[
+            {name:"مینا",text:"کیفیت چاپ عالی بود و بسته‌بندی واقعاً محکم رسید."},
+            {name:"علی",text:"ارسال سریع انجام شد، دقیقاً مثل عکس‌ها."},
+            {name:"سارا",text:"پشتیبانی خیلی خوب بود و راهنمایی کردند."}
+          ]
+        },
+        shipping:{
+          methods:[
+            {id:"post",name:"پست پیشتاز",cost:65000,eta:"۲ تا ۴ روز کاری"},
+            {id:"tipax",name:"تیپاکس",cost:95000,eta:"۱ تا ۳ روز کاری"}
+          ],
+          freeOver:0
+        },
+        payment:{
+          methods:[
+            {id:"online",name:"پرداخت آنلاین",note:"نیاز به درگاه پرداخت"},
+            {id:"cod",name:"پرداخت در محل",note:"پرداخت هنگام تحویل (در صورت امکان)"}
+          ],
+          onlineGatewayHint:"برای پرداخت آنلاین واقعی، باید درگاه و تایید سرور داشته باشی."
+        },
+        faq:[
+          {q:"چطور سایز پوستر را انتخاب کنم؟",a:"در توضیح محصول سایزها درج شده. اگر سایز خاص می‌خوای، با پشتیبانی هماهنگ کن."},
+          {q:"پرداخت در محل دارید؟",a:"بله، اگر در شهر/روش ارسال شما امکان‌پذیر باشد (از پنل مدیریت قابل تنظیم است)."},
+          {q:"چطور سفارش را پیگیری کنم؟",a:"بعد از ثبت سفارش، کد سفارش نمایش داده می‌شود. از طریق پشتیبانی پیگیری کن."}
+        ],
+        order:{mode:"summary",whatsappNumber:""}
+      },
+      products:[
+        {id:"p1",name:"پوستر مینیمال (مشکی/طلایی)",price:420000,category:"مینیمال",tag:"پرفروش",image:"https://images.unsplash.com/photo-1545239351-1141bd82e8a6?auto=format&fit=crop&w=1200&q=60",featured:true},
+        {id:"p2",name:"تابلو طبیعت (کوهستان)",price:680000,category:"طبیعت",tag:"جدید",image:"https://images.unsplash.com/photo-1482192505345-5655af888cc4?auto=format&fit=crop&w=1200&q=60",featured:true},
+        {id:"p3",name:"پوستر تایپوگرافی فارسی",price:390000,category:"تایپوگرافی",tag:"خاص",image:"https://images.unsplash.com/photo-1523726491678-bf852e717f6a?auto=format&fit=crop&w=1200&q=60",featured:true},
+        {id:"p4",name:"تابلو هنری (آبستره)",price:770000,category:"هنری",tag:"پیشنهادی",image:"https://images.unsplash.com/photo-1541961017774-22349e4a1262?auto=format&fit=crop&w=1200&q=60",featured:true},
+        {id:"p5",name:"پوستر فانتزی (رنگی)",price:350000,category:"فانتزی",tag:"محبوب",image:"https://images.unsplash.com/photo-1529101091764-c3526daf38fe?auto=format&fit=crop&w=1200&q=60",featured:false},
+        {id:"p6",name:"تابلو کلاسیک (الهام‌بخش)",price:820000,category:"کلاسیک",tag:"لوکس",image:"https://images.unsplash.com/photo-1513519245088-0e12902e5a38?auto=format&fit=crop&w=1200&q=60",featured:false}
+      ]
+    };
+
+    const $=(s)=>document.querySelector(s);
+    const root=document.documentElement;
+
+    const logoMarkEl=$("#logoMark"), storeNameEl=$("#storeName"), storeTagEl=$("#storeTag");
+    const heroTitleEl=$("#heroTitle"), heroDescEl=$("#heroDesc"), supportTextEl=$("#supportText");
+    const kpi1=$("#kpi1"),kpi2=$("#kpi2"),kpi3=$("#kpi3");
+    const kpr1=$("#kpiRight1"),kpr2=$("#kpiRight2"),kpr3=$("#kpiRight3");
+    const grid=$("#grid"), results=$("#results"), q=$("#q"), cat=$("#cat"), sort=$("#sort");
+    const catChips=$("#catChips");
+    const bannerTrack=$("#bannerTrack"), bannerDots=$("#bannerDots"), bannerPrev=$("#bannerPrev"), bannerNext=$("#bannerNext");
+    const clearFilters=$("#clearFilters");
+    const showAllBtn=$("#showAllBtn");
+    const waBtn=$("#waBtn");
+    const customOrderBtn=$("#customOrderBtn");
+    const ratingText=$("#ratingText"), testimonialsBox=$("#testimonials"), trustLogos=$("#trustLogos");
+    const trustTitle=$("#trustTitle"), trustDesc=$("#trustDesc");
+    const shippingSummary=$("#shippingSummary"), paymentSummary=$("#paymentSummary"), shippingNote=$("#shippingNote");
+    const faqBox=$("#faqBox");
+    const footerName=$("#footerName"), year=$("#year");
+
+    const cartOverlay=$("#cartOverlay"), cartBtn=$("#cartBtn"), cartClose=$("#cartClose"), cartBackdrop=$("#cartBackdrop");
+    const cartItems=$("#cartItems"), cartTotal=$("#cartTotal"), cartCount=$("#cartCount"), cartMsg=$("#cartMsg"), goCheckout=$("#goCheckout");
+
+    const checkoutOverlay=$("#checkoutOverlay"), openCheckout=$("#openCheckout"), checkoutClose=$("#checkoutClose"), checkoutBackdrop=$("#checkoutBackdrop");
+    const shipOptions=$("#shipOptions"), payOptions=$("#payOptions");
+    const sumItems=$("#sumItems"), sumShip=$("#sumShip"), sumTotal=$("#sumTotal"), payHint=$("#payHint");
+    const placeOrder=$("#placeOrder"), orderMsg=$("#orderMsg");
+    const cName=$("#cName"), cPhone=$("#cPhone"), cAddr=$("#cAddr"), cPost=$("#cPost"), cNote=$("#cNote");
+
+    const helpOverlay=$("#helpOverlay"), helpBtn=$("#helpBtn"), helpClose=$("#helpClose"), helpBackdrop=$("#helpBackdrop"), helpContent=$("#helpContent");
+    const adminOverlay=$("#adminOverlay"), adminBtn=$("#adminBtn"), adminClose=$("#adminClose"), adminBackdrop=$("#adminBackdrop");
+    const adminBody=$("#adminBody"), adminCancel=$("#adminCancel"), adminSave=$("#adminSave"), adminMsg=$("#adminMsg");
+    const themeBtn=$("#themeBtn");
+
+
+    function waLink(num, text){
+      const digits = String(num||"").trim().replace(/\s+/g,"").replace(/[-_()]/g,"");
+      const cleaned = digits.startsWith("0") ? digits.slice(1) : digits;
+      const intl = cleaned.startsWith("98") ? cleaned : ("98"+cleaned);
+      const msg = encodeURIComponent(text||"سلام");
+      return "https://wa.me/"+intl+"?text="+msg;
+    }
+
+    let state=loadState();
+    let cart=loadCart();
+    let filters={q:"",cat:"all",sort:"popular"};
+    let showAllProducts = !(state.config.productsFeaturedOnly===true);
+    let selectedShip=state.config.shipping.methods?.[0]?.id || "post";
+    let selectedPay=state.config.payment.methods?.[0]?.id || "online";
+
+    init();
+    loadPublicState();
+
+    function init(){
+      year.textContent=new Date().getFullYear();
+      applyTheme(state.config.theme);
+      applyColors(state.config.colors);
+      renderTop(); renderBanners(); renderTrust(); renderFaq(); initCategories(); renderCatChips();
+      bindEvents(); renderProducts(); renderCart(); renderCheckoutOptions(); updateCheckoutSummary();
+      renderHelp(); renderShippingPaymentSummaries(); setWhatsAppLinks(); setShowAllLabel();
+    }
+
+
+    async function loadPublicState(){
+      // For public visitors: show latest store data from state.json
+      // For owner (after successful admin login): keep local edits (localStorage)
+      try{
+        const isOwner = localStorage.getItem(OWNER_KEY)==="1";
+        if(isOwner) return;
+        const res = await fetch("state.json", {cache:"no-store"});
+        if(!res.ok) return;
+        const data = await res.json();
+        state = sanitize(data);
+        showAllProducts = !(state.config.productsFeaturedOnly===true);
+        // do NOT save to localStorage for visitors (so updates on server apply)
+        applyTheme(state.config.theme);
+        applyColors(state.config.colors);
+        renderTop(); renderBanners(); renderTrust(); renderFaq(); initCategories(); renderCatChips();
+        renderProducts(); renderCart(); renderCheckoutOptions(); updateCheckoutSummary();
+        renderHelp(); renderShippingPaymentSummaries(); setWhatsAppLinks(); setShowAllLabel();
+      }catch(e){}
+    }
+
+    function bindEvents(){
+      q.addEventListener("input",()=>{filters.q=q.value.trim();renderProducts();});
+      cat.addEventListener("change",()=>{filters.cat=cat.value;renderProducts();});
+      sort.addEventListener("change",()=>{filters.sort=sort.value;renderProducts();});
+      clearFilters.addEventListener("click",()=>{q.value="";cat.value="all";sort.value="popular";filters={q:"",cat:"all",sort:"popular"};renderProducts();});
+
+      showAllBtn.addEventListener("click",()=>{showAllProducts=!showAllProducts;renderProducts();});
+
+      themeBtn.addEventListener("click",()=>{state.config.theme=(state.config.theme==="dark")?"light":"dark";applyTheme(state.config.theme);saveState(state);});
+
+      cartBtn.addEventListener("click",()=>openOverlay(cartOverlay));
+      cartClose.addEventListener("click",()=>closeOverlay(cartOverlay));
+      cartBackdrop.addEventListener("click",()=>closeOverlay(cartOverlay));
+
+      goCheckout.addEventListener("click",()=>{
+        if(getCartLines().length===0){cartMsg.textContent="سبد خرید خالی است.";return;}
+        closeOverlay(cartOverlay);openOverlay(checkoutOverlay);updateCheckoutSummary();
+      });
+
+      openCheckout.addEventListener("click",()=>{
+        if(getCartLines().length===0){openOverlay(cartOverlay);cartMsg.textContent="اول چند محصول به سبد خرید اضافه کن.";return;}
+        openOverlay(checkoutOverlay);updateCheckoutSummary();
+      });
+      checkoutClose.addEventListener("click",()=>closeOverlay(checkoutOverlay));
+      checkoutBackdrop.addEventListener("click",()=>closeOverlay(checkoutOverlay));
+
+      helpBtn.addEventListener("click",()=>openOverlay(helpOverlay));
+      helpClose.addEventListener("click",()=>closeOverlay(helpOverlay));
+      helpBackdrop.addEventListener("click",()=>closeOverlay(helpOverlay));
+
+      adminBtn.addEventListener("click",openAdmin);
+      adminLoginCancel.addEventListener("click",()=>closeOverlay(adminLoginOverlay));
+      adminLoginGo.addEventListener("click",()=>{
+        const pass=String(adminLoginPass.value||"");
+        if(String(pass)!==String(state.admin?.password||"")){alert("رمز اشتباه است.");return;}
+        closeOverlay(adminLoginOverlay);
+        buildAdminUI();
+        openOverlay(adminOverlay);
+      });
+      adminLoginPass.addEventListener("keydown",(e)=>{ if(e.key==="Enter"){ adminLoginGo.click(); }});
+
+      adminClose.addEventListener("click",()=>closeOverlay(adminOverlay));
+      adminBackdrop.addEventListener("click",()=>closeOverlay(adminOverlay));
+      adminCancel.addEventListener("click",()=>closeOverlay(adminOverlay));
+      adminSave.addEventListener("click",saveAdmin);
+
+      placeOrder.addEventListener("click",placeOrderFn);
+      bannerPrev.addEventListener("click",()=>scrollBanner(-1));
+      bannerNext.addEventListener("click",()=>scrollBanner(1));
+      bannerDots.addEventListener("click",(e)=>{const idx=e.target?.getAttribute?.("data-idx"); if(idx!==null){goBanner(parseInt(idx,10));}});
+    }
+
+    function renderTop(){
+      logoMarkEl.textContent=(state.config.logoMark||"P").slice(0,2);
+      storeNameEl.textContent=state.config.storeName||"فروشگاه پوستر";
+      storeTagEl.textContent=state.config.storeTag||"";
+      heroTitleEl.textContent=state.config.heroTitle||"";
+      heroDescEl.textContent=state.config.heroDesc||"";
+      supportTextEl.textContent=state.config.supportText||"";
+      footerName.textContent=state.config.storeName||"فروشگاه پوستر";
+      const k=state.config.kpis||[];
+      kpi1.textContent=k[0]||"بسته‌بندی مطمئن"; kpi2.textContent=k[1]||"ارسال سریع"; kpi3.textContent=k[2]||"ضمانت سلامت";
+      const kr=state.config.kpisRight||[];
+      kpr1.textContent=kr[0]||"چاپ باکیفیت"; kpr2.textContent=kr[1]||"سفارش اختصاصی"; kpr3.textContent=kr[2]||"پشتیبانی";
+    }
+
+    function renderProducts(){
+      setShowAllLabel();
+      const list=getFilteredProducts();
+      grid.innerHTML="";
+      results.textContent=`${list.length.toLocaleString("fa-IR")} محصول`;
+      if(!list.length){
+        grid.innerHTML=`<div class="card card__p" style="grid-column:1/-1;"><b>چیزی پیدا نشد</b><div class="muted">فیلترها یا عبارت جستجو را تغییر بده.</div></div>`;
+        return;
+      }
+      for(const p of list){
+        const el=document.createElement("article");
+        el.className="p";
+        el.innerHTML=`
+          <img class="p__img" src="${esc(p.image)}" alt="${esc(p.name)}" loading="lazy"/>
+          <div class="p__b">
+            <div class="p__name">${esc(p.name)}</div>
+            <div class="p__meta">
+              <div class="price">${money(p.price)}</div>
+              <div class="pill">${esc(p.category)}${p.tag ? " • " + esc(p.tag) : ""}</div>
+            </div>
+            <div class="p__hint">ارسال: پست / تیپاکس • پرداخت: آنلاین / در محل</div>
+          </div>
+          <div class="p__foot">
+            <button class="btn" data-add="${esc(p.id)}" type="button">افزودن</button>
+            <button class="mini" data-minus="${esc(p.id)}" type="button">−</button>
+            <button class="mini" data-plus="${esc(p.id)}" type="button">+</button>
+          </div>
+        `;
+        grid.appendChild(el);
+      }
+      grid.onclick=(e)=>{
+        const t=e.target;
+        const add=t?.getAttribute?.("data-add");
+        const plus=t?.getAttribute?.("data-plus");
+        const minus=t?.getAttribute?.("data-minus");
+        if(add) addToCart(add,1);
+        if(plus) addToCart(plus,1);
+        if(minus) addToCart(minus,-1);
+      };
+    }
+
+
+    let bannerIndex=0;
+    function renderBanners(){
+      const items=state.config.banners||[];
+      bannerTrack.innerHTML="";
+      bannerDots.innerHTML="";
+      if(!items.length){
+        bannerTrack.innerHTML=`<div class="card card__p" style="grid-column:1/-1;"><b>بنری تعریف نشده</b><div class="muted">از پنل مدیریت می‌تونی بنر اضافه کنی.</div></div>`;
+        return;
+      }
+      items.forEach((b,idx)=>{
+        const el=document.createElement("div");
+        el.className="banner";
+        el.innerHTML=`
+          <img src="${esc(b.image||"")}" alt="${esc(b.title||"بنر")}" loading="lazy"/>
+          <div class="bannerShade" aria-hidden="true"></div>
+          <div class="bannerText">
+            <b>${esc(b.title||"")}</b>
+            <div class="muted">${esc(b.subtitle||"")}</div>
+            ${b.linkText ? `<a class="btn btn--soft" href="${esc(b.linkUrl||"#")}">${esc(b.linkText)}</a>` : ``}
+          </div>
+        `;
+        bannerTrack.appendChild(el);
+
+        const dot=document.createElement("button");
+        dot.className="dot"+(idx===bannerIndex?" is-on":"");
+        dot.type="button";
+        dot.setAttribute("data-idx", String(idx));
+        bannerDots.appendChild(dot);
+      });
+
+      // keep dots synced with scroll
+      bannerTrack.onscroll=()=>{
+        const w=bannerTrack.clientWidth;
+        const idx=Math.round(bannerTrack.scrollLeft / (w+12)); // 12 gap
+        if(Number.isFinite(idx) && idx!==bannerIndex){
+          bannerIndex=Math.max(0,Math.min(idx,(state.config.banners||[]).length-1));
+          syncDots();
+        }
+      };
+      goBanner(0);
+    }
+    function syncDots(){
+      [...bannerDots.children].forEach((d,i)=>d.classList.toggle("is-on", i===bannerIndex));
+    }
+    function goBanner(idx){
+      const items=state.config.banners||[];
+      if(!items.length) return;
+      bannerIndex=Math.max(0,Math.min(idx,items.length-1));
+      const w=bannerTrack.clientWidth;
+      bannerTrack.scrollTo({left: bannerIndex*(w+12), behavior:"smooth"});
+      syncDots();
+    }
+    function scrollBanner(dir){
+      goBanner(bannerIndex + (dir>0?1:-1));
+    }
+
+    function renderCatChips(){
+      if(!catChips) return;
+      const cats=Array.from(new Set((state.products||[]).map(p=>p.category).filter(Boolean)));
+      catChips.innerHTML="";
+      const make=(label,val)=>{
+        const b=document.createElement("button");
+        b.type="button";
+        b.className="catChip"+(filters.cat===val?" is-on":"");
+        b.textContent=label;
+        b.onclick=()=>{filters.cat=val;cat.value=val;renderCatChips();renderProducts();};
+        catChips.appendChild(b);
+      };
+      make("همه","all");
+      cats.slice(0,8).forEach(c=>make(c,c)); // show up to 8 chips (clean UI)
+    }
+
+    function renderTrust(){
+      ratingText.textContent=state.config.trust.ratingText||"";
+      testimonialsBox.innerHTML="";
+      for(const it of (state.config.trust.testimonials||[])){
+        const d=document.createElement("div");
+        d.className="quote";
+        d.innerHTML=`<b>${esc(it.name||"مشتری")}</b><div class="muted">${esc(it.text||"")}</div>`;
+        testimonialsBox.appendChild(d);
+      }
+      trustTitle.textContent=state.config.trust.trustTitle||"";
+      trustDesc.textContent=state.config.trust.trustDesc||"";
+
+      trustLogos.innerHTML="";
+      for(const lg of (state.config.trust.logos||[])){
+        const box=document.createElement("div");
+        box.className="logoBox";
+        box.title=lg.title||"نماد";
+        if(lg.img){
+          const img=document.createElement("img");
+          img.src=lg.img; img.alt=lg.title||"نماد";
+          box.appendChild(img);
+        }else{
+          box.innerHTML=`<div class="muted small">${esc(lg.title||"نماد")}</div>`;
+        }
+        if(lg.link){
+          const a=document.createElement("a");
+          a.href=lg.link; a.target="_blank"; a.rel="noopener";
+          a.style.position="absolute"; a.style.inset="0";
+          box.appendChild(a);
+        }
+        trustLogos.appendChild(box);
+      }
+    }
+
+    function renderFaq(){
+      faqBox.innerHTML="";
+      for(const it of (state.config.faq||[])){
+        const details=document.createElement("details");
+        details.style.border="1px solid var(--line)";
+        details.style.borderRadius="16px";
+        details.style.padding="10px 12px";
+        details.style.background="rgba(255,255,255,.04)";
+        details.style.marginTop="10px";
+        details.innerHTML=`<summary style="cursor:pointer;font-weight:1000;">${esc(it.q||"")}</summary>
+                          <div class="muted" style="margin-top:8px;">${esc(it.a||"")}</div>`;
+        faqBox.appendChild(details);
+      }
+    }
+
+    function renderShippingPaymentSummaries(){
+      const sh=state.config.shipping.methods||[];
+      const pm=state.config.payment.methods||[];
+      shippingSummary.textContent=sh.map(x=>x.name).join("، ")||"—";
+      paymentSummary.textContent=pm.map(x=>x.name).join("، ")||"—";
+      shippingNote.textContent=state.config.payment.onlineGatewayHint||"";
+    }
+
+    function initCategories(){
+      while(cat.options.length>1) cat.remove(1);
+      const cats=Array.from(new Set((state.products||[]).map(p=>p.category).filter(Boolean)));
+      for(const c of cats){
+        const opt=document.createElement("option");
+        opt.value=c; opt.textContent=c;
+        cat.appendChild(opt);
+      }
+      renderCatChips();
+    }
+
+    function addToCart(id,delta){
+      if(!state.products.find(p=>p.id===id)) return;
+      const cur=cart[id]||0;
+      const next=Math.max(0,cur+delta);
+      if(next===0) delete cart[id]; else cart[id]=next;
+      saveCart(cart);
+      renderCart();
+      updateCheckoutSummary();
+    }
+    function getCartLines(){
+      return Object.entries(cart).map(([id,qty])=>{
+        const p=state.products.find(x=>x.id===id);
+        return p?({...p,qty}):null;
+      }).filter(Boolean);
+    }
+    function renderCart(){
+      const lines=getCartLines();
+      cartItems.innerHTML="";
+      cartMsg.textContent="";
+      const count=Object.values(cart).reduce((s,n)=>s+n,0);
+      cartCount.textContent=count.toLocaleString("fa-IR");
+      if(!lines.length){
+        cartItems.innerHTML=`<div class="muted">سبد خرید خالی است.</div>`;
+        cartTotal.textContent=money(0);
+        return;
+      }
+      let total=0;
+      for(const it of lines){
+        total+=it.price*it.qty;
+        const d=document.createElement("div");
+        d.className="ci";
+        d.innerHTML=`
+          <div class="ci__top"><div class="ci__name">${esc(it.name)}</div><div class="price">${money(it.price*it.qty)}</div></div>
+          <div class="ci__ctrl">
+            <span class="muted small">تعداد:</span>
+            <button class="mini" data-cminus="${esc(it.id)}" type="button">−</button>
+            <b>${it.qty.toLocaleString("fa-IR")}</b>
+            <button class="mini" data-cplus="${esc(it.id)}" type="button">+</button>
+            <button class="btn btn--ghost" data-remove="${esc(it.id)}" type="button">حذف</button>
+          </div>
+        `;
+        cartItems.appendChild(d);
+      }
+      cartTotal.textContent=money(total);
+
+      cartItems.onclick=(e)=>{
+        const t=e.target;
+        const plus=t?.getAttribute?.("data-cplus");
+        const minus=t?.getAttribute?.("data-cminus");
+        const rem=t?.getAttribute?.("data-remove");
+        if(plus) addToCart(plus,1);
+        if(minus) addToCart(minus,-1);
+        if(rem){delete cart[rem];saveCart(cart);renderCart();updateCheckoutSummary();}
+      };
+    }
+
+    function renderCheckoutOptions(){
+      shipOptions.innerHTML="";
+      for(const m of (state.config.shipping.methods||[])){
+        const row=document.createElement("label");
+        row.style.display="grid";
+        row.style.gridTemplateColumns="22px 1fr";
+        row.style.gap="10px";
+        row.style.alignItems="start";
+        row.style.padding="10px";
+        row.style.border="1px solid var(--line)";
+        row.style.borderRadius="16px";
+        row.style.background="rgba(255,255,255,.04)";
+        row.style.marginBottom="10px";
+        row.innerHTML=`
+          <input type="radio" name="ship" ${m.id===selectedShip?"checked":""} value="${esc(m.id)}" style="margin-top:4px"/>
+          <div><b>${esc(m.name)}</b><div class="muted small">هزینه: ${money(m.cost)} • زمان: ${esc(m.eta||"")}</div></div>
+        `;
+        shipOptions.appendChild(row);
+      }
+      shipOptions.onchange=(e)=>{const v=e.target?.value; if(v){selectedShip=v;updateCheckoutSummary();}};
+      payOptions.innerHTML="";
+      for(const m of (state.config.payment.methods||[])){
+        const row=document.createElement("label");
+        row.style.display="grid";
+        row.style.gridTemplateColumns="22px 1fr";
+        row.style.gap="10px";
+        row.style.alignItems="start";
+        row.style.padding="10px";
+        row.style.border="1px solid var(--line)";
+        row.style.borderRadius="16px";
+        row.style.background="rgba(255,255,255,.04)";
+        row.style.marginBottom="10px";
+        row.innerHTML=`
+          <input type="radio" name="pay" ${m.id===selectedPay?"checked":""} value="${esc(m.id)}" style="margin-top:4px"/>
+          <div><b>${esc(m.name)}</b><div class="muted small">${esc(m.note||"")}</div></div>
+        `;
+        payOptions.appendChild(row);
+      }
+      payOptions.onchange=(e)=>{const v=e.target?.value; if(v){selectedPay=v;updateCheckoutSummary();}};
+    }
+
+    function calcShippingCost(itemsTotal){
+      const shipping=state.config.shipping;
+      const freeOver=Number(shipping.freeOver||0);
+      if(freeOver>0 && itemsTotal>=freeOver) return 0;
+      const method=(shipping.methods||[]).find(x=>x.id===selectedShip) || shipping.methods?.[0];
+      return Number(method?.cost||0);
+    }
+
+    function updateCheckoutSummary(){
+      const lines=getCartLines();
+      const itemsTotal=lines.reduce((s,it)=>s+it.price*it.qty,0);
+      const shipCost=calcShippingCost(itemsTotal);
+      const total=itemsTotal+shipCost;
+      sumItems.textContent=money(itemsTotal);
+      sumShip.textContent=money(shipCost);
+      sumTotal.textContent=money(total);
+      payHint.textContent=(selectedPay==="online")
+        ? (state.config.payment.onlineGatewayHint || "پرداخت آنلاین نیاز به درگاه دارد.")
+        : "پرداخت در محل: هنگام تحویل (در صورت امکان).";
+    }
+
+    function placeOrderFn(){
+      orderMsg.textContent="";
+      const lines=getCartLines();
+      if(!lines.length){orderMsg.textContent="سبد خرید خالی است.";return;}
+      const name=cName.value.trim(), phone=cPhone.value.trim(), addr=cAddr.value.trim();
+      if(!name||!phone||!addr){orderMsg.textContent="لطفاً نام، موبایل و آدرس را کامل وارد کن.";return;}
+      const itemsTotal=lines.reduce((s,it)=>s+it.price*it.qty,0);
+      const shipCost=calcShippingCost(itemsTotal);
+      const total=itemsTotal+shipCost;
+      const orderId="PS-"+Date.now().toString(36).toUpperCase();
+      if(selectedPay==="online"){
+        orderMsg.innerHTML=`سفارش ثبت شد ✅ <b>${orderId}</b><br/><span class="muted small">پرداخت آنلاین واقعی نیاز به اتصال درگاه و تایید سرور دارد. فعلاً این قالب فقط رابط کاربری است.</span>`;
+      }else{
+        orderMsg.innerHTML=`سفارش ثبت شد ✅ <b>${orderId}</b><br/><span class="muted small">روش پرداخت: پرداخت در محل</span>`;
+      }
+      cart={}; saveCart(cart); renderCart(); updateCheckoutSummary();
+    }
+
+    function renderHelp(){
+      helpContent.innerHTML=`
+        <div class="card card__p">
+          <b>باز کردن سایت</b>
+          <ol class="muted">
+            <li>فایل <span class="mono">index.html</span> را دوبار کلیک کن تا در مرورگر باز شود.</li>
+            <li>این قالب برای موبایل و کامپیوتر ریسپانسیو است.</li>
+          </ol>
+        </div>
+        <div class="card card__p">
+          <b>ویرایش بدون کدنویسی (فقط برای خودت)</b>
+          <ol class="muted">
+            <li>بالای سایت روی <b>«مدیریت»</b> بزن.</li>
+            <li>رمز را وارد کن (پیش‌فرض: <b>1234</b> — حتماً عوضش کن).</li>
+            <li>نام فروشگاه، محصولات، نظرات، نمادها، ارسال (پست/تیپاکس) و پرداخت (آنلاین/در محل) را تغییر بده.</li>
+            <li>روی <b>«ذخیره و اعمال»</b> بزن.</li>
+          </ol>
+          <div class="warn"><b>نکته:</b> این رمز فقط روی مرورگر شماست. برای امنیت واقعی مثل دیجی‌کالا باید بک‌اند داشته باشد.</div>
+        </div>
+        <div class="card card__p">
+          <b>لینک دائمی</b>
+          <div class="muted">برای انتشار عمومی، فایل <span class="mono">state.json</span> را هم همراه <span class="mono">index.html</span> روی هاست آپلود کن.</div>
+          <div class="muted">من مستقیم نمی‌توانم آپلود کنم، ولی خیلی راحت روی Netlify آپلود می‌کنی و لینک دائمی می‌گیری.</div>
+        </div>
+      `;
+    }
+
+    function openAdmin(){
+      // ورود داخل خود سایت (بدون پنجره‌های مرورگر)
+      adminMsg.textContent="";
+      adminLoginPass.value="";
+      openOverlay(adminLoginOverlay);
+      adminLoginPass.focus();
+    }
+
+    function buildAdminUI(){
+      adminBody.innerHTML="";
+      const wrap=document.createElement("div");
+      wrap.style.display="grid";
+      wrap.style.gap="12px";
+      wrap.appendChild(panelGeneral());
+      wrap.appendChild(panelColors());
+      wrap.appendChild(panelBanners());
+      wrap.appendChild(panelProducts());
+      wrap.appendChild(panelTrust());
+      wrap.appendChild(panelShipPay());
+      wrap.appendChild(panelFAQ());
+      wrap.appendChild(panelSecurity());
+      wrap.appendChild(panelExport());
+      adminBody.appendChild(wrap);
+    }
+
+    function panelBox(title,sub){
+      const box=document.createElement("div");
+      box.className="card";
+      box.innerHTML=`<div class="card__h"><h3>${esc(title)}</h3><div class="muted small">${esc(sub||"")}</div></div><div class="card__p"></div>`;
+      return box;
+    }
+
+    function panelGeneral(){
+      const box=panelBox("اطلاعات فروشگاه","متن‌ها و تنظیمات اصلی");
+      const body=box.querySelector(".card__p");
+      body.innerHTML=`
+        <div class="row">
+          <div class="field"><div class="label">نام فروشگاه</div><input class="input" id="a_storeName"></div>
+          <div class="field"><div class="label">شعار</div><input class="input" id="a_storeTag"></div>
+        </div>
+        <div class="row" style="margin-top:10px;">
+          <div class="field"><div class="label">لوگو (حرف کوتاه)</div><input class="input" id="a_logoMark" placeholder="مثلاً P"></div>
+          <div class="field"><div class="label">واحد پول</div><input class="input" id="a_currency" placeholder="تومان"></div>
+        </div>
+        <div class="field" style="margin-top:10px;"><div class="label">تیتر اصلی</div><input class="input" id="a_heroTitle"></div>
+        <div class="field" style="margin-top:10px;"><div class="label">توضیح اصلی</div><textarea class="input" id="a_heroDesc" rows="3"></textarea></div>
+        <div class="row" style="margin-top:10px;">
+          <div class="field"><div class="label">KPI 1</div><input class="input" id="a_k1"></div>
+          <div class="field"><div class="label">KPI 2</div><input class="input" id="a_k2"></div>
+        </div>
+        <div class="row" style="margin-top:10px;">
+          <div class="field"><div class="label">KPI 3</div><input class="input" id="a_k3"></div>
+          <div class="field"><div class="label">متن پشتیبانی</div><input class="input" id="a_support"></div>
+        </div>
+        <div class="row" style="margin-top:10px;">
+          <div class="field"><div class="label">شماره واتساپ (برای سفارش سفارشی/پشتیبانی)</div><input class="input" id="a_waNum" placeholder="مثلاً 0993..."></div>
+          <div class="field"><div class="label">متن پیش‌فرض پیام واتساپ</div><input class="input" id="a_waText" placeholder="سلام، برای سفارش سفارشی پیام می‌دهم."></div>
+        </div>
+        <div class="row" style="margin-top:10px;">
+          <div class="field"><div class="label">تم</div>
+            <select class="input" id="a_theme"><option value="dark">تیره</option><option value="light">روشن</option></select>
+          </div>
+          <div class="field"><div class="label">نمایش صفحه اصلی</div>
+            <select class="input" id="a_featuredMode">
+              <option value="featured">فقط محصولات منتخب</option>
+              <option value="all">همه محصولات</option>
+            </select>
+          </div>
+        </div>
+        <div class="row" style="margin-top:10px;">
+          <div class="field"><div class="label">ارسال رایگان بالای (۰ یعنی خاموش)</div><input class="input" id="a_freeOver" inputmode="numeric"></div>
+          <div class="field"><div class="label">—</div><input class="input" value="(قابل تغییر)" disabled></div>
+        </div>
+      `;
+      $("#a_storeName").value=state.config.storeName||"";
+      $("#a_storeTag").value=state.config.storeTag||"";
+      $("#a_logoMark").value=state.config.logoMark||"P";
+      $("#a_currency").value=state.config.currency||"تومان";
+      $("#a_heroTitle").value=state.config.heroTitle||"";
+      $("#a_heroDesc").value=state.config.heroDesc||"";
+      $("#a_k1").value=state.config.kpis?.[0]||"";
+      $("#a_k2").value=state.config.kpis?.[1]||"";
+      $("#a_k3").value=state.config.kpis?.[2]||"";
+      $("#a_support").value=state.config.supportText||"";
+      $("#a_theme").value=state.config.theme||"dark";
+      $("#a_waNum").value=state.config.order?.whatsappNumber||"";
+      $("#a_waText").value=state.config.order?.whatsappPrefill||"";
+      $("#a_featuredMode").value=(state.config.productsFeaturedOnly===true) ? "featured" : "all";
+      $("#a_freeOver").value=String(state.config.shipping.freeOver||0);
+      return box;
+    }
+
+    function panelColors(){
+      const box=panelBox("رنگ‌ها","رنگ برند را تنظیم کن");
+      const body=box.querySelector(".card__p");
+      body.innerHTML=`
+        <div class="row3">
+          <div class="field"><div class="label">رنگ برند ۱</div><input id="a_brand" type="color"></div>
+          <div class="field"><div class="label">رنگ برند ۲</div><input id="a_brand2" type="color"></div>
+          <div class="field"><div class="label">رنگ اکسنت</div><input id="a_accent" type="color"></div>
+        </div>
+      `;
+      $("#a_brand").value=state.config.colors.brand||"#ffb703";
+      $("#a_brand2").value=state.config.colors.brand2||"#fb8500";
+      $("#a_accent").value=state.config.colors.accent||"#6ea8fe";
+      return box;
+    }
+
+
+    function panelBanners(){
+      const box=panelBox("بنرها","اضافه/حذف/ویرایش (بالای محصولات نمایش داده می‌شود)");
+      const body=box.querySelector(".card__p");
+      body.innerHTML=`
+        <div style="overflow:auto">
+          <table style="width:100%;border-collapse:separate;border-spacing:0;border:1px solid var(--line);border-radius:16px;overflow:hidden;">
+            <thead><tr>
+              <th style="text-align:right;padding:10px;border-bottom:1px solid var(--line);color:var(--muted);font-size:12px;">عنوان</th>
+              <th style="text-align:right;padding:10px;border-bottom:1px solid var(--line);color:var(--muted);font-size:12px;">زیرعنوان</th>
+              <th style="text-align:right;padding:10px;border-bottom:1px solid var(--line);color:var(--muted);font-size:12px;">عکس (URL)</th>
+              <th style="text-align:right;padding:10px;border-bottom:1px solid var(--line);color:var(--muted);font-size:12px;">متن دکمه</th>
+              <th style="text-align:right;padding:10px;border-bottom:1px solid var(--line);color:var(--muted);font-size:12px;">لینک دکمه</th>
+              <th style="text-align:right;padding:10px;border-bottom:1px solid var(--line);color:var(--muted);font-size:12px;">حذف</th>
+            </tr></thead>
+            <tbody id="a_bannersTbody"></tbody>
+          </table>
+        </div>
+        <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:10px;">
+          <button class="btn btn--ghost" type="button" id="a_addBanner">+ افزودن بنر</button>
+          <span class="muted small">برای عکس، یک لینک مستقیم (URL) قرار بده.</span>
+        </div>
+      `;
+      if(!Array.isArray(state.config.banners)) state.config.banners=[];
+      renderBannersAdminTable();
+      $("#a_addBanner").onclick=()=>{
+        state.config.banners.push({title:"بنر جدید",subtitle:"توضیح کوتاه",image:"https://images.unsplash.com/photo-1523726491678-bf852e717f6a?auto=format&fit=crop&w=1400&q=60",linkText:"مشاهده",linkUrl:"#products"});
+        renderBannersAdminTable();
+      };
+      return box;
+    }
+
+    function renderBannersAdminTable(){
+      const tb=$("#a_bannersTbody"); if(!tb) return;
+      tb.innerHTML="";
+      (state.config.banners||[]).forEach((b,idx)=>{
+        const tr=document.createElement("tr");
+        tr.dataset.idx=String(idx);
+        tr.innerHTML=`
+          <td style="padding:10px;border-bottom:1px solid var(--line);"><input class="input" data-k="title" value="${esc(b.title||"")}"></td>
+          <td style="padding:10px;border-bottom:1px solid var(--line);"><input class="input" data-k="subtitle" value="${esc(b.subtitle||"")}"></td>
+          <td style="padding:10px;border-bottom:1px solid var(--line);"><input class="input" data-k="image" value="${esc(b.image||"")}"></td>
+          <td style="padding:10px;border-bottom:1px solid var(--line);"><input class="input" data-k="linkText" value="${esc(b.linkText||"")}"></td>
+          <td style="padding:10px;border-bottom:1px solid var(--line);"><input class="input" data-k="linkUrl" value="${esc(b.linkUrl||"")}"></td>
+          <td style="padding:10px;border-bottom:1px solid var(--line);"><button class="btn btn--ghost" data-del="1" type="button">حذف</button></td>
+        `;
+        tb.appendChild(tr);
+      });
+
+      tb.oninput=(e)=>{
+        const inp=e.target;
+        const k=inp?.getAttribute?.("data-k");
+        const tr=inp?.closest?.("tr");
+        const idx=parseInt(tr?.dataset?.idx,10);
+        if(!k || !Number.isFinite(idx)) return;
+        state.config.banners[idx][k]=inp.value;
+      };
+      tb.onclick=(e)=>{
+        const btn=e.target;
+        if(!btn?.getAttribute?.("data-del")) return;
+        const tr=btn.closest("tr");
+        const idx=parseInt(tr?.dataset?.idx,10);
+        if(!Number.isFinite(idx)) return;
+        if((state.config.banners||[]).length<=1){alert("حداقل ۱ بنر نگه دار.");return;}
+        state.config.banners.splice(idx,1);
+        renderBannersAdminTable();
+      };
+    }
+
+    function panelProducts(){
+      const box=panelBox("محصولات","اضافه/حذف/ویرایش");
+      const body=box.querySelector(".card__p");
+      body.innerHTML=`
+        <div style="overflow:auto">
+          <table style="width:100%;border-collapse:separate;border-spacing:0;border:1px solid var(--line);border-radius:16px;overflow:hidden;">
+            <thead><tr>
+              <th style="text-align:right;padding:10px;border-bottom:1px solid var(--line);color:var(--muted);font-size:12px;">نام</th>
+              <th style="text-align:right;padding:10px;border-bottom:1px solid var(--line);color:var(--muted);font-size:12px;">قیمت</th>
+              <th style="text-align:right;padding:10px;border-bottom:1px solid var(--line);color:var(--muted);font-size:12px;">دسته</th>
+              <th style="text-align:right;padding:10px;border-bottom:1px solid var(--line);color:var(--muted);font-size:12px;">تگ</th>
+              <th style="text-align:right;padding:10px;border-bottom:1px solid var(--line);color:var(--muted);font-size:12px;">عکس (URL)</th>
+              <th style="text-align:right;padding:10px;border-bottom:1px solid var(--line);color:var(--muted);font-size:12px;">حذف</th>
+            </tr></thead>
+            <tbody id="a_productsTbody"></tbody>
+          </table>
+        </div>
+        <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:10px;">
+          <button class="btn btn--ghost" type="button" id="a_addProd">+ افزودن محصول</button>
+          <button class="btn btn--ghost" type="button" id="a_clearCart">خالی کردن سبد خرید</button>
+        </div>
+      `;
+      renderProductsAdminTable();
+      $("#a_addProd").onclick=()=>{
+        state.products.push({id:"p"+Date.now().toString(36),name:"پوستر جدید",price:300000,category:"جدید",tag:"",image:"https://images.unsplash.com/photo-1529101091764-c3526daf38fe?auto=format&fit=crop&w=1200&q=60"});
+        renderProductsAdminTable();
+      };
+      $("#a_clearCart").onclick=()=>{cart={};saveCart(cart);renderCart();updateCheckoutSummary();alert("سبد خرید خالی شد.");};
+      return box;
+    }
+
+    function renderProductsAdminTable(){
+      const tb=$("#a_productsTbody");
+      tb.innerHTML="";
+      for(const p of state.products){
+        const tr=document.createElement("tr");
+        tr.dataset.id=p.id;
+        tr.innerHTML=`
+          <td style="padding:10px;border-bottom:1px solid var(--line);"><input class="input" data-k="name" value="${esc(p.name)}"></td>
+          <td style="padding:10px;border-bottom:1px solid var(--line);"><input class="input" data-k="price" value="${esc(String(p.price))}"></td>
+          <td style="padding:10px;border-bottom:1px solid var(--line);"><input class="input" data-k="category" value="${esc(p.category)}"></td>
+          <td style="padding:10px;border-bottom:1px solid var(--line);"><input class="input" data-k="tag" value="${esc(p.tag||"")}"></td>
+          <td style="padding:10px;border-bottom:1px solid var(--line);"><input class="input" data-k="image" value="${esc(p.image)}"></td>
+          <td style="padding:10px;border-bottom:1px solid var(--line);"><button class="btn btn--ghost" data-del="1" type="button">حذف</button></td>
+        `;
+        tb.appendChild(tr);
+      }
+      tb.onclick=(e)=>{
+        const btn=e.target;
+        if(!btn?.getAttribute) return;
+        if(!btn.getAttribute("data-del")) return;
+        if(state.products.length<=1){alert("حداقل باید ۱ محصول داشته باشی.");return;}
+        const tr=btn.closest("tr"); const id=tr?.dataset?.id;
+        if(!id) return;
+        state.products=state.products.filter(x=>x.id!==id);
+        if(cart[id]){delete cart[id];saveCart(cart);}
+        renderProductsAdminTable();
+      };
+      tb.oninput=(e)=>{
+        const inp=e.target;
+        const k=inp?.getAttribute?.("data-k");
+        if(!k) return;
+        const tr=inp.closest("tr"); const id=tr?.dataset?.id;
+        const p=state.products.find(x=>x.id===id);
+        if(!p) return;
+        if(k==="price"){
+          const raw=String(inp.value).replace(/[٬,]/g,"");
+          const n=parseInt(toLatinDigits(raw),10);
+          p.price=Number.isFinite(n)?n:0;
+        }else{
+          p[k]=inp.value;
+        }
+      };
+    }
+
+    function panelTrust(){
+      const box=panelBox("اعتماد مشتریان و نمادها","نماد اعتماد/مجوزها + نظرات");
+      const body=box.querySelector(".card__p");
+      body.innerHTML=`
+        <div class="row">
+          <div class="field"><div class="label">متن امتیاز</div><input class="input" id="a_ratingText"></div>
+          <div class="field"><div class="label">عنوان اعتماد</div><input class="input" id="a_trustTitle"></div>
+        </div>
+        <div class="field" style="margin-top:10px;"><div class="label">توضیح اعتماد</div><textarea class="input" id="a_trustDesc" rows="2"></textarea></div>
+        <div class="hr" style="margin:12px 0;"></div>
+        <b>نمادها (URL عکس + لینک)</b>
+        <div id="a_logoList" style="display:grid;gap:10px;margin-top:10px;"></div>
+      `;
+      $("#a_ratingText").value=state.config.trust.ratingText||"";
+      $("#a_trustTitle").value=state.config.trust.trustTitle||"";
+      $("#a_trustDesc").value=state.config.trust.trustDesc||"";
+      const list=$("#a_logoList"); list.innerHTML="";
+      (state.config.trust.logos||[]).forEach((lg,idx)=>{
+        const row=document.createElement("div");
+        row.className="card";
+        row.innerHTML=`
+          <div class="card__p">
+            <div class="row">
+              <div class="field"><div class="label">عنوان</div><input class="input" data-lg="${idx}" data-k="title"></div>
+              <div class="field"><div class="label">عکس (URL)</div><input class="input" data-lg="${idx}" data-k="img" placeholder="https://..."></div>
+            </div>
+            <div class="field" style="margin-top:10px;"><div class="label">لینک تایید (اختیاری)</div><input class="input" data-lg="${idx}" data-k="link" placeholder="https://..."></div>
+          </div>
+        `;
+        list.appendChild(row);
+        row.querySelector('[data-k="title"]').value=lg.title||"";
+        row.querySelector('[data-k="img"]').value=lg.img||"";
+        row.querySelector('[data-k="link"]').value=lg.link||"";
+      });
+      list.oninput=(e)=>{
+        const inp=e.target;
+        const idx=parseInt(inp?.getAttribute?.("data-lg"),10);
+        const k=inp?.getAttribute?.("data-k");
+        if(!Number.isFinite(idx)||!k) return;
+        state.config.trust.logos[idx][k]=inp.value;
+      };
+      return box;
+    }
+
+    function panelShipPay(){
+      const box=panelBox("ارسال و پرداخت","پست/تیپاکس + آنلاین/در محل");
+      const body=box.querySelector(".card__p");
+      body.innerHTML=`
+        <div class="field"><div class="label">متن راهنمای پرداخت آنلاین</div><input class="input" id="a_gatewayHint"></div>
+        <div class="hr" style="margin:12px 0;"></div>
+        <b>روش‌های ارسال</b>
+        <div id="a_shipList" style="display:grid;gap:10px;margin-top:10px;"></div>
+        <div class="hr" style="margin:12px 0;"></div>
+        <b>روش‌های پرداخت</b>
+        <div id="a_payList" style="display:grid;gap:10px;margin-top:10px;"></div>
+      `;
+      $("#a_gatewayHint").value=state.config.payment.onlineGatewayHint||"";
+      const sh=$("#a_shipList"); sh.innerHTML="";
+      (state.config.shipping.methods||[]).forEach((m,idx)=>{
+        const row=document.createElement("div");
+        row.className="card";
+        row.innerHTML=`
+          <div class="card__p">
+            <div class="row">
+              <div class="field"><div class="label">نام</div><input class="input" data-si="${idx}" data-k="name"></div>
+              <div class="field"><div class="label">هزینه</div><input class="input" data-si="${idx}" data-k="cost" inputmode="numeric"></div>
+            </div>
+            <div class="field" style="margin-top:10px;"><div class="label">زمان تقریبی</div><input class="input" data-si="${idx}" data-k="eta"></div>
+          </div>
+        `;
+        sh.appendChild(row);
+        row.querySelector('[data-k="name"]').value=m.name||"";
+        row.querySelector('[data-k="cost"]').value=String(m.cost??0);
+        row.querySelector('[data-k="eta"]').value=m.eta||"";
+      });
+      sh.oninput=(e)=>{
+        const inp=e.target;
+        const idx=parseInt(inp?.getAttribute?.("data-si"),10);
+        const k=inp?.getAttribute?.("data-k");
+        if(!Number.isFinite(idx)||!k) return;
+        if(k==="cost"){
+          const raw=String(inp.value).replace(/[٬,]/g,"");
+          const n=parseInt(toLatinDigits(raw),10);
+          state.config.shipping.methods[idx][k]=Number.isFinite(n)?n:0;
+        }else{
+          state.config.shipping.methods[idx][k]=inp.value;
+        }
+      };
+      const pm=$("#a_payList"); pm.innerHTML="";
+      (state.config.payment.methods||[]).forEach((m,idx)=>{
+        const row=document.createElement("div");
+        row.className="card";
+        row.innerHTML=`
+          <div class="card__p">
+            <div class="row">
+              <div class="field"><div class="label">نام</div><input class="input" data-pi="${idx}" data-k="name"></div>
+              <div class="field"><div class="label">شناسه</div><input class="input" value="${esc(m.id)}" disabled></div>
+            </div>
+            <div class="field" style="margin-top:10px;"><div class="label">توضیح</div><input class="input" data-pi="${idx}" data-k="note"></div>
+          </div>
+        `;
+        pm.appendChild(row);
+        row.querySelector('[data-k="name"]').value=m.name||"";
+        row.querySelector('[data-k="note"]').value=m.note||"";
+      });
+      pm.oninput=(e)=>{
+        const inp=e.target;
+        const idx=parseInt(inp?.getAttribute?.("data-pi"),10);
+        const k=inp?.getAttribute?.("data-k");
+        if(!Number.isFinite(idx)||!k) return;
+        state.config.payment.methods[idx][k]=inp.value;
+      };
+      return box;
+    }
+
+    function panelFAQ(){
+      const box=panelBox("سوالات متداول","محتوا را تغییر بده");
+      const body=box.querySelector(".card__p");
+      const list=document.createElement("div");
+      list.style.display="grid";
+      list.style.gap="10px";
+      body.appendChild(list);
+      const add=document.createElement("button");
+      add.className="btn btn--ghost";
+      add.type="button";
+      add.textContent="+ افزودن سوال";
+      add.style.marginTop="10px";
+      body.appendChild(add);
+
+      function render(){
+        list.innerHTML="";
+        (state.config.faq||[]).forEach((it,idx)=>{
+          const row=document.createElement("div");
+          row.className="card";
+          row.innerHTML=`
+            <div class="card__p">
+              <div class="row">
+                <div class="field"><div class="label">سوال</div><input class="input" data-fi="${idx}" data-k="q"></div>
+                <div class="field"><div class="label">حذف</div><button class="btn btn--ghost" data-del="${idx}" type="button">حذف</button></div>
+              </div>
+              <div class="field" style="margin-top:10px;"><div class="label">پاسخ</div><textarea class="input" rows="2" data-fi="${idx}" data-k="a"></textarea></div>
+            </div>
+          `;
+          list.appendChild(row);
+          row.querySelector('[data-k="q"]').value=it.q||"";
+          row.querySelector('[data-k="a"]').value=it.a||"";
+        });
+      }
+      render();
+
+      list.oninput=(e)=>{
+        const inp=e.target;
+        const idx=parseInt(inp?.getAttribute?.("data-fi"),10);
+        const k=inp?.getAttribute?.("data-k");
+        if(!Number.isFinite(idx)||!k) return;
+        state.config.faq[idx][k]=inp.value;
+      };
+      list.onclick=(e)=>{
+        const btn=e.target;
+        const del=btn?.getAttribute?.("data-del");
+        if(del===null) return;
+        const idx=parseInt(del,10);
+        if(!Number.isFinite(idx)) return;
+        if((state.config.faq||[]).length<=1){alert("حداقل ۱ سوال نگه دار.");return;}
+        state.config.faq.splice(idx,1);
+        render();
+      };
+      add.onclick=()=>{state.config.faq.push({q:"سوال جدید",a:"پاسخ..."});render();};
+      return box;
+    }
+
+    function panelSecurity(){
+      const box=panelBox("امنیت مدیریت","رمز را عوض کن");
+      const body=box.querySelector(".card__p");
+      body.innerHTML=`
+        <div class="warn"><b>مهم:</b> رمز پیش‌فرض <span class="mono">1234</span> است. همینجا تغییرش بده.</div>
+        <div class="row" style="margin-top:10px;">
+          <div class="field"><div class="label">رمز جدید</div><input class="input" id="a_newPass" placeholder="حداقل ۴ کاراکتر"></div>
+          <div class="field"><div class="label">تکرار رمز</div><input class="input" id="a_newPass2" placeholder="تکرار"></div>
+        </div>
+      `;
+      return box;
+    }
+
+    function panelExport(){
+      const box=panelBox("خروجی/ورود تنظیمات","برای انتشار عمومی");
+      const body=box.querySelector(".card__p");
+      body.innerHTML=`
+        <div class="warn">
+          <b>انتشار عمومی:</b> برای اینکه مردم همیشه جدیدترین محتوا را ببینند، سایت از فایل <span class="mono">state.json</span> می‌خواند.
+          بعد از هر تغییر، روی «دانلود state.json» بزن و همان فایل را روی هاست جایگزین کن.
+        </div>
+        <div class="row" style="margin-top:10px;">
+          <button class="btn btn--ghost" type="button" id="a_dlState">دانلود state.json</button>
+          <label class="btn btn--ghost" style="cursor:pointer;">
+            <input type="file" id="a_upState" accept="application/json" style="display:none"/>
+            وارد کردن state.json
+          </label>
+        </div>
+        <div class="muted small" style="margin-top:10px;">
+          نکته: تغییرات «مدیریت» روی مرورگر شما ذخیره می‌شود. برای اینکه برای همه قابل مشاهده شود، باید state.json را روی هاست آپدیت کنی.
+        </div>
+      `;
+
+      const dl=$("#a_dlState");
+      const up=$("#a_upState");
+
+      dl.onclick=()=>{
+        const data = JSON.stringify(state, null, 2);
+        const blob = new Blob([data], {type:"application/json;charset=utf-8"});
+        const a=document.createElement("a");
+        a.href=URL.createObjectURL(blob);
+        a.download="state.json";
+        document.body.appendChild(a);
+        a.click();
+        a.remove();
+        setTimeout(()=>URL.revokeObjectURL(a.href), 500);
+        alert("state.json دانلود شد. حالا آن را روی هاست جایگزین کن.");
+      };
+
+      up.onchange=async ()=>{
+        const file=up.files?.[0];
+        if(!file) return;
+        try{
+          const text=await file.text();
+          const obj=JSON.parse(text);
+          state=sanitize(obj);
+          saveState(state);
+          applyTheme(state.config.theme);
+          applyColors(state.config.colors);
+          renderTop(); renderBanners(); renderTrust(); renderFaq(); initCategories(); renderCatChips();
+          renderProducts(); renderShippingPaymentSummaries(); renderCheckoutOptions(); updateCheckoutSummary(); setWhatsAppLinks();
+          alert("state.json وارد شد ✅");
+        }catch(e){
+          alert("فایل JSON معتبر نیست.");
+        }finally{
+          up.value="";
+        }
+      };
+
+      return box;
+    }
+
+    function saveAdmin(){
+      adminMsg.textContent="";
+      state.config.storeName=$("#a_storeName").value.trim()||"فروشگاه پوستر";
+      state.config.storeTag=$("#a_storeTag").value.trim()||"";
+      state.config.logoMark=$("#a_logoMark").value.trim().slice(0,2)||"P";
+      state.config.currency=$("#a_currency").value.trim()||"تومان";
+      state.config.heroTitle=$("#a_heroTitle").value.trim()||"";
+      state.config.heroDesc=$("#a_heroDesc").value.trim()||"";
+      state.config.supportText=$("#a_support").value.trim()||"";
+      state.config.kpis=[$("#a_k1").value.trim(),$("#a_k2").value.trim(),$("#a_k3").value.trim()];
+      state.config.theme=$("#a_theme").value;
+      if(!state.config.order) state.config.order={};
+      state.config.order.whatsappNumber=$("#a_waNum").value.trim();
+      state.config.order.whatsappPrefill=$("#a_waText").value.trim();
+      state.config.productsFeaturedOnly = ($("#a_featuredMode").value==="featured");
+      showAllProducts = !(state.config.productsFeaturedOnly===true);
+      state.config.colors.brand=$("#a_brand").value;
+      state.config.colors.brand2=$("#a_brand2").value;
+      state.config.colors.accent=$("#a_accent").value;
+
+      const freeOverRaw=String($("#a_freeOver").value).replace(/[٬,]/g,"");
+      const freeOver=parseInt(toLatinDigits(freeOverRaw),10);
+      state.config.shipping.freeOver=Number.isFinite(freeOver)?freeOver:0;
+
+      state.config.trust.ratingText=$("#a_ratingText").value.trim();
+      state.config.trust.trustTitle=$("#a_trustTitle").value.trim();
+      state.config.trust.trustDesc=$("#a_trustDesc").value.trim();
+
+      state.config.payment.onlineGatewayHint=$("#a_gatewayHint")?.value?.trim() || state.config.payment.onlineGatewayHint;
+
+      const np=$("#a_newPass")?.value?.trim();
+      const np2=$("#a_newPass2")?.value?.trim();
+      if(np||np2){
+        if(!np || np.length<4){adminMsg.textContent="رمز جدید باید حداقل ۴ کاراکتر باشد.";return;}
+        if(np!==np2){adminMsg.textContent="رمزها یکسان نیستند.";return;}
+        state.admin.password=np;
+      }
+
+      // validate products
+      for(const p of state.products){
+        p.name=String(p.name||"").trim();
+        p.category=String(p.category||"").trim()||"عمومی";
+        p.tag=String(p.tag||"").trim();
+        p.image=String(p.image||"").trim();
+        p.price=Number(p.price)||0;
+        if(typeof p.featured!=="boolean") p.featured=false;
+        if(!p.id) p.id="p"+Math.random().toString(36).slice(2);
+      }
+      if(!state.products.length){adminMsg.textContent="حداقل ۱ محصول لازم است.";return;}
+      if(state.products.some(p=>!p.name||!p.image)){adminMsg.textContent="برای همه محصولات نام و عکس (URL) لازم است.";return;}
+
+      saveState(state);
+      applyTheme(state.config.theme);
+      applyColors(state.config.colors);
+      renderTop(); renderBanners(); renderTrust(); renderFaq(); initCategories(); renderCatChips();
+      renderProducts(); renderShippingPaymentSummaries(); renderCheckoutOptions(); updateCheckoutSummary(); setWhatsAppLinks();
+
+      adminMsg.textContent="ذخیره شد ✅";
+      setTimeout(()=>closeOverlay(adminOverlay),500);
+    }
+
+    function getFilteredProducts(){
+      let list=[...state.products];
+      if(!showAllProducts){
+        list=list.filter(p=>p.featured===true);
+      }
+      if(filters.q){
+        const qq=norm(filters.q);
+        list=list.filter(p=>norm(p.name).includes(qq)||norm(p.category).includes(qq)||norm(p.tag||"").includes(qq));
+      }
+      if(filters.cat!=="all") list=list.filter(p=>p.category===filters.cat);
+      if(filters.sort==="priceAsc") list.sort((a,b)=>a.price-b.price);
+      if(filters.sort==="priceDesc") list.sort((a,b)=>b.price-a.price);
+      if(filters.sort==="nameAsc") list.sort((a,b)=>a.name.localeCompare(b.name,"fa"));
+      return list;
+    }
+
+
+    function setWhatsAppLinks(){
+      const num = state.config.order?.whatsappNumber || "";
+      const pre = state.config.order?.whatsappPrefill || "سلام، برای سفارش سفارشی پیام می‌دهم.";
+      const href = num ? waLink(num, pre) : "#";
+      if(waBtn) waBtn.href = href;
+      if(customOrderBtn) customOrderBtn.href = href;
+      // also show supportText with number (already displayed)
+    }
+    function setShowAllLabel(){
+      if(!showAllBtn) return;
+      showAllBtn.textContent = showAllProducts ? "نمایش فقط محصولات منتخب" : "نمایش همه محصولات";
+    }
+
+    function applyTheme(t){
+      root.setAttribute("data-theme", t==="light"?"light":"dark");
+      themeBtn.textContent=(t==="light")?"تم تیره":"تم روشن";
+    }
+    function applyColors(c){
+      if(!c) return;
+      root.style.setProperty("--brand",c.brand||"#ffb703");
+      root.style.setProperty("--brand2",c.brand2||"#fb8500");
+      root.style.setProperty("--accent",c.accent||"#6ea8fe");
+    }
+    function openOverlay(el){el.classList.add("is-open");el.setAttribute("aria-hidden","false");}
+    function closeOverlay(el){el.classList.remove("is-open");el.setAttribute("aria-hidden","true");}
+
+    function saveState(s){localStorage.setItem(STORE_KEY,JSON.stringify(s));}
+    function loadState(){
+      try{const raw=localStorage.getItem(STORE_KEY); if(!raw) return deepClone(DEFAULT); return sanitize(JSON.parse(raw));}
+      catch{return deepClone(DEFAULT);}
+    }
+    function saveCart(c){localStorage.setItem(CART_KEY,JSON.stringify(c));}
+    function loadCart(){try{return JSON.parse(localStorage.getItem(CART_KEY))||{};}catch{return {};}}
+    function sanitize(obj){
+      const s=deepClone(DEFAULT);
+      if(!obj||typeof obj!=="object") return s;
+      if(obj.admin?.password) s.admin.password=String(obj.admin.password);
+      const cfg=obj.config||{};
+      s.config.theme=cfg.theme==="light"?"light":"dark";
+      for(const k of ["storeName","storeTag","logoMark","heroTitle","heroDesc","supportText","currency"]){
+        if(cfg[k]!==undefined) s.config[k]=String(cfg[k]);
+      }
+      if(Array.isArray(cfg.kpis)) s.config.kpis=cfg.kpis.map(x=>String(x||""));
+      if(Array.isArray(cfg.kpisRight)) s.config.kpisRight=cfg.kpisRight.map(x=>String(x||""));
+      const col=cfg.colors||{};
+      s.config.colors.brand=col.brand||s.config.colors.brand;
+      s.config.colors.brand2=col.brand2||s.config.colors.brand2;
+      s.config.colors.accent=col.accent||s.config.colors.accent;
+
+      const tr=cfg.trust||{};
+      s.config.trust.ratingText=tr.ratingText||s.config.trust.ratingText;
+      s.config.trust.trustTitle=tr.trustTitle||s.config.trust.trustTitle;
+      s.config.trust.trustDesc=tr.trustDesc||s.config.trust.trustDesc;
+      if(Array.isArray(tr.logos)) s.config.trust.logos=tr.logos.map(l=>({title:String(l.title||""),img:String(l.img||""),link:String(l.link||"")}));
+      if(Array.isArray(tr.testimonials)) s.config.trust.testimonials=tr.testimonials.map(t=>({name:String(t.name||"مشتری"),text:String(t.text||"")}));
+
+      const sh=cfg.shipping||{};
+      s.config.shipping.freeOver=Number(sh.freeOver)||0;
+      if(Array.isArray(sh.methods)) s.config.shipping.methods=sh.methods.map(m=>({id:String(m.id||""),name:String(m.name||""),cost:Number(m.cost)||0,eta:String(m.eta||"")})).filter(x=>x.id&&x.name);
+
+      const pm=cfg.payment||{};
+      if(Array.isArray(pm.methods)) s.config.payment.methods=pm.methods.map(m=>({id:String(m.id||""),name:String(m.name||""),note:String(m.note||"")})).filter(x=>x.id&&x.name);
+      if(pm.onlineGatewayHint) s.config.payment.onlineGatewayHint=String(pm.onlineGatewayHint);
+
+      if(cfg.productsFeaturedOnly!==undefined) s.config.productsFeaturedOnly=!!cfg.productsFeaturedOnly;
+      if(cfg.order?.whatsappNumber) { if(!s.config.order) s.config.order={}; s.config.order.whatsappNumber=String(cfg.order.whatsappNumber); }
+      if(cfg.order?.whatsappPrefill) { if(!s.config.order) s.config.order={}; s.config.order.whatsappPrefill=String(cfg.order.whatsappPrefill); }
+      if(Array.isArray(cfg.faq)) s.config.faq=cfg.faq.map(f=>({q:String(f.q||""),a:String(f.a||"")})).filter(x=>x.q);
+
+      if(Array.isArray(obj.products) && obj.products.length){
+        s.products=obj.products.map(p=>({
+          id:String(p.id||("p"+Math.random().toString(36).slice(2))),
+          name:String(p.name||"محصول"),
+          price:Number(p.price)||0,
+          category:String(p.category||"عمومی"),
+          tag:String(p.tag||""),
+          image:String(p.image||"https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?auto=format&fit=crop&w=1200&q=60"),
+          featured: (p.featured===true)
+        }));
+      }
+      return s;
+    }
+
+    function money(n){return Number(n).toLocaleString("fa-IR")+" "+(state.config.currency||"تومان");}
+    function norm(s){return String(s).toLowerCase().replaceAll("ي","ی").replaceAll("ك","ک").replace(/\s+/g," ").trim();}
+    function esc(str){return String(str).replaceAll("&","&amp;").replaceAll("<","&lt;").replaceAll(">","&gt;").replaceAll('"',"&quot;").replaceAll("'","&#039;");}
+    function deepClone(o){return JSON.parse(JSON.stringify(o));}
+    function toLatinDigits(s){const map={"۰":"0","۱":"1","۲":"2","۳":"3","۴":"4","۵":"5","۶":"6","۷":"7","۸":"8","۹":"9","٠":"0","١":"1","٢":"2","٣":"3","٤":"4","٥":"5","٦":"6","٧":"7","٨":"8","٩":"9"};return String(s).replace(/[۰-۹٠-٩]/g,ch=>map[ch]??ch);}
+  </script>
+</body>
+</html>

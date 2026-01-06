@@ -1,0 +1,197 @@
+{
+  "admin": {
+    "password": "1234"
+  },
+  "config": {
+    "theme": "dark",
+    "storeName": "فروشگاه پوستر",
+    "storeTag": "تابلو و پوسترهای خاص برای خانه و محل کار",
+    "logoMark": "P",
+    "heroTitle": "تابلو و پوسترهای خاص، آماده ارسال",
+    "heroDesc": "انتخاب آسان، سبد خرید، پرداخت آنلاین یا پرداخت در محل. همه چیز از پنل مدیریت فقط برای خودت قابل ویرایش است.",
+    "supportText": "واتساپ / تماس: 09939128495",
+    "currency": "تومان",
+    "kpis": [
+      "بسته‌بندی مطمئن",
+      "ارسال سریع",
+      "ضمانت سلامت"
+    ],
+    "kpisRight": [
+      "چاپ باکیفیت",
+      "سفارش اختصاصی",
+      "پشتیبانی"
+    ],
+    "colors": {
+      "brand": "#ffb703",
+      "brand2": "#fb8500",
+      "accent": "#6ea8fe"
+    },
+    "banners": [
+      {
+        "title": "بنر ۱: تخفیف افتتاحیه",
+        "subtitle": "تا ۳۰٪ تخفیف روی پوسترهای مینیمال",
+        "image": "https://images.unsplash.com/photo-1523726491678-bf852e717f6a?auto=format&fit=crop&w=1400&q=60",
+        "linkText": "مشاهده محصولات مینیمال",
+        "linkUrl": "#products"
+      },
+      {
+        "title": "بنر ۲: طبیعت آرامش‌بخش",
+        "subtitle": "تابلوهای طبیعت مناسب اتاق نشیمن",
+        "image": "https://images.unsplash.com/photo-1482192505345-5655af888cc4?auto=format&fit=crop&w=1400&q=60",
+        "linkText": "دیدن دسته طبیعت",
+        "linkUrl": "#products"
+      },
+      {
+        "title": "بنر ۳: چاپ لوکس",
+        "subtitle": "کنواس درجه ۱ + رنگ‌های ماندگار",
+        "image": "https://images.unsplash.com/photo-1541961017774-22349e4a1262?auto=format&fit=crop&w=1400&q=60",
+        "linkText": "سفارش لوکس",
+        "linkUrl": "#shipping"
+      }
+    ],
+    "trust": {
+      "ratingText": "۴٫۹ از ۵ (۲۴۲ نظر)",
+      "trustTitle": "خرید مطمئن",
+      "trustDesc": "امکان پرداخت آنلاین یا پرداخت در محل + پیگیری سفارش",
+      "logos": [
+        {
+          "title": "نماد اعتماد",
+          "img": "",
+          "link": ""
+        },
+        {
+          "title": "مجوز",
+          "img": "",
+          "link": ""
+        },
+        {
+          "title": "پرداخت امن",
+          "img": "",
+          "link": ""
+        }
+      ],
+      "testimonials": [
+        {
+          "name": "مینا",
+          "text": "کیفیت چاپ عالی بود و بسته‌بندی واقعاً محکم رسید."
+        },
+        {
+          "name": "علی",
+          "text": "ارسال سریع انجام شد، دقیقاً مثل عکس‌ها."
+        },
+        {
+          "name": "سارا",
+          "text": "پشتیبانی خیلی خوب بود و راهنمایی کردند."
+        }
+      ]
+    },
+    "shipping": {
+      "methods": [
+        {
+          "id": "post",
+          "name": "پست پیشتاز",
+          "cost": 65000,
+          "eta": "۲ تا ۴ روز کاری"
+        },
+        {
+          "id": "tipax",
+          "name": "تیپاکس",
+          "cost": 95000,
+          "eta": "۱ تا ۳ روز کاری"
+        }
+      ],
+      "freeOver": 0
+    },
+    "payment": {
+      "methods": [
+        {
+          "id": "online",
+          "name": "پرداخت آنلاین",
+          "note": "نیاز به درگاه پرداخت"
+        },
+        {
+          "id": "cod",
+          "name": "پرداخت در محل",
+          "note": "پرداخت هنگام تحویل (در صورت امکان)"
+        }
+      ],
+      "onlineGatewayHint": "برای پرداخت آنلاین واقعی، باید درگاه و تایید سرور داشته باشی."
+    },
+    "faq": [
+      {
+        "q": "چطور سایز پوستر را انتخاب کنم؟",
+        "a": "در توضیح محصول سایزها درج شده. اگر سایز خاص می‌خوای، با پشتیبانی هماهنگ کن."
+      },
+      {
+        "q": "پرداخت در محل دارید؟",
+        "a": "بله، اگر در شهر/روش ارسال شما امکان‌پذیر باشد (از پنل مدیریت قابل تنظیم است)."
+      },
+      {
+        "q": "چطور سفارش را پیگیری کنم؟",
+        "a": "بعد از ثبت سفارش، کد سفارش نمایش داده می‌شود. از طریق پشتیبانی پیگیری کن."
+      }
+    ],
+    "order": {
+      "mode": "summary",
+      "whatsappNumber": "09939128495",
+      "whatsappPrefill": "سلام، برای سفارش تابلو/پوستر سفارشی پیام می‌دهم."
+    },
+    "productsFeaturedOnly": true
+  },
+  "products": [
+    {
+      "id": "p1",
+      "name": "پوستر مینیمال (مشکی/طلایی)",
+      "price": 420000,
+      "category": "مینیمال",
+      "tag": "پرفروش",
+      "image": "https://images.unsplash.com/photo-1545239351-1141bd82e8a6?auto=format&fit=crop&w=1200&q=60",
+      "featured": true
+    },
+    {
+      "id": "p2",
+      "name": "تابلو طبیعت (کوهستان)",
+      "price": 680000,
+      "category": "طبیعت",
+      "tag": "جدید",
+      "image": "https://images.unsplash.com/photo-1482192505345-5655af888cc4?auto=format&fit=crop&w=1200&q=60",
+      "featured": true
+    },
+    {
+      "id": "p3",
+      "name": "پوستر تایپوگرافی فارسی",
+      "price": 390000,
+      "category": "تایپوگرافی",
+      "tag": "خاص",
+      "image": "https://images.unsplash.com/photo-1523726491678-bf852e717f6a?auto=format&fit=crop&w=1200&q=60",
+      "featured": true
+    },
+    {
+      "id": "p4",
+      "name": "تابلو هنری (آبستره)",
+      "price": 770000,
+      "category": "هنری",
+      "tag": "پیشنهادی",
+      "image": "https://images.unsplash.com/photo-1541961017774-22349e4a1262?auto=format&fit=crop&w=1200&q=60",
+      "featured": true
+    },
+    {
+      "id": "p5",
+      "name": "پوستر فانتزی (رنگی)",
+      "price": 350000,
+      "category": "فانتزی",
+      "tag": "محبوب",
+      "image": "https://images.unsplash.com/photo-1529101091764-c3526daf38fe?auto=format&fit=crop&w=1200&q=60",
+      "featured": false
+    },
+    {
+      "id": "p6",
+      "name": "تابلو کلاسیک (الهام‌بخش)",
+      "price": 820000,
+      "category": "کلاسیک",
+      "tag": "لوکس",
+      "image": "https://images.unsplash.com/photo-1513519245088-0e12902e5a38?auto=format&fit=crop&w=1200&q=60",
+      "featured": false
+    }
+  ]
+}
